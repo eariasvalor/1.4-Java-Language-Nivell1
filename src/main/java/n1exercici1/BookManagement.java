@@ -11,12 +11,8 @@ public class BookManagement {
         this.books = new ArrayList<>();
     }
 
-    public List<Book> getBooks(){
+    public List<Book> getBookList(){
         return Collections.unmodifiableList(books);
-    }
-
-    public String getBookTitle(int index){
-        return books.get(index).getTitle();
     }
 
     public void addBook(Book book){
@@ -24,6 +20,10 @@ public class BookManagement {
             throw new IllegalArgumentException("The book cannot be null.");
         }
         books.add(book);
+    }
+
+    public String getBookByTitle(int index){
+        return books.get(index).getTitle();
     }
 
     public void addBookIntoPosition(Book book, int index){
