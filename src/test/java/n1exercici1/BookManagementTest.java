@@ -38,4 +38,17 @@ class BookManagementTest {
         assertTrue(bookManagement.getBookByTitle(2).equalsIgnoreCase("Third Book"));
     }
 
+    @Test
+    void ThereIsNoDuplicatedQuijote(){
+        BookManagement bookManagement = new BookManagement();
+        bookManagement.addBook(new Book("El Quijote"));
+        int sizeBefore = bookManagement.getBookList().size();
+        bookManagement.addBook(new Book("El Quijote"));
+        int sizeAfter = bookManagement.getBookList().size();
+        assertEquals(sizeBefore, sizeAfter);
+
+    }
+
+
+
 }

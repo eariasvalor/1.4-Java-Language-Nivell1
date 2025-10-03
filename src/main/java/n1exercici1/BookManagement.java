@@ -19,6 +19,11 @@ public class BookManagement {
         if(book == null) {
             throw new IllegalArgumentException("The book cannot be null.");
         }
+        for(Book b : books) {
+            if (b.getTitle().equalsIgnoreCase(book.getTitle())) {
+                return;
+            }
+        }
         books.add(book);
     }
 
