@@ -1,14 +1,24 @@
 package n1exercici2;
 
 public class DniCalculation {
-    static char[] letters = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+    private int number;
+    private char letter;
+    private static final char[] letters = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
+    public DniCalculation(int number){
+        if(number < 0 || number > 99999999) {
+            throw new IllegalArgumentException("The DNI number must have between 0 and 99999999 characters");
+        }
 
-    public char getDniLetter(int dni){
-        int modulus = dni % letters.length;
-        char letter = letters[modulus];
+        this.number = number;
+        this.letter = getDniLetter();
+    }
 
-        return letter;
+    public char getDniLetter(){
+        int modulus = this.number % letters.length;
+        char letterCalculated = letters[modulus];
+
+        return letterCalculated;
     }
 
 }
