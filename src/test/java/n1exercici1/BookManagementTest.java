@@ -33,7 +33,7 @@ class BookManagementTest {
         bookManagement.addBook(new Book("Second Book"));
         bookManagement.addBook(new Book("Third Book"));
 
-        assertTrue(bookManagement.getBookByTitle(1).equalsIgnoreCase("Second Book"));
+        assertTrue(bookManagement.getBookTitleByIndex(1).equalsIgnoreCase("Second Book"));
     }
 
     @Test
@@ -44,20 +44,16 @@ class BookManagementTest {
         bookManagement.addBook(new Book("Second Book"));
         bookManagement.addBook(new Book("Third Book"));
 
-        assertTrue(bookManagement.getBookByTitle(2).equalsIgnoreCase("Third Book"));
+        assertTrue(bookManagement.getBookTitleByIndex(2).equalsIgnoreCase("Third Book"));
     }
 
     @Test
     void ThereIsNoDuplicatedQuijote(){
         BookManagement bookManagement = new BookManagement();
-
         bookManagement.addBook(new Book("El Quijote"));
-        int sizeBefore = bookManagement.getBookList().size();
-
         bookManagement.addBook(new Book("El Quijote"));
-        int sizeAfter = bookManagement.getBookList().size();
 
-        assertEquals(sizeBefore, sizeAfter);
+        assertEquals(1, bookManagement.getBookList().size());
 
     }
 

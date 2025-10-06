@@ -29,7 +29,7 @@ public class BookManagement {
         books.sort((b1, b2) -> b1.getTitle().compareToIgnoreCase(b2.getTitle()));
     }
 
-    public String getBookByTitle(int index){
+    public String getBookTitleByIndex(int index){
         return books.get(index).getTitle();
     }
 
