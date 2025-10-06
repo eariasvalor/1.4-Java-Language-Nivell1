@@ -25,6 +25,8 @@ public class BookManagement {
             }
         }
         books.add(book);
+
+        books.sort((b1, b2) -> b1.getTitle().compareToIgnoreCase(b2.getTitle()));
     }
 
     public String getBookByTitle(int index){
@@ -48,6 +50,7 @@ public class BookManagement {
                 books.remove(i);
             }
         }
+        books.sort((b1, b2) -> b1.getTitle().compareToIgnoreCase(b2.getTitle()));
     }
 
     public void clearBooks(){
