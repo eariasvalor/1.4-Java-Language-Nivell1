@@ -62,14 +62,14 @@ class BookManagementTest {
     }
 
     @Test
-    void getQuijoteByPositionTwo(){
+    void getQuijoteByPositionOne(){
         BookManagement bookManagement = new BookManagement();
 
         bookManagement.addBook(new Book("Les Misérables"));
         bookManagement.addBook(new Book("Crime and Punishment"));
         bookManagement.addBook(new Book("El Quijote"));
 
-        assertTrue(bookManagement.getBookList().get(2).getTitle().equalsIgnoreCase("El Quijote"));
+        assertTrue(bookManagement.getBookList().get(1).getTitle().equalsIgnoreCase("El Quijote"));
     }
 
     @Test
@@ -132,6 +132,29 @@ class BookManagementTest {
         bm.addBook(new Book("Crime and Punishment"));
 
         bm.removeBook(bm.getBookList().get(2));
+
+        List<Book> books = bm.getBookList();
+
+        for (int i = 1; i < books.size(); i++) {
+            String prev = books.get(i - 1).getTitle();
+            String current = books.get(i).getTitle();
+
+            assertTrue(prev.compareToIgnoreCase(current) <= 0,
+                    "The list is not sorted: '" + prev + "' goes before '" + current + "'");
+        }
+    }
+
+    @Test
+    void listRemainsAlphabeticallySortedAfterRemoveByTitle() {
+        BookManagement bm = new BookManagement();
+
+        bm.addBook(new Book("Zorro"));
+        bm.addBook(new Book("Árbol"));
+        bm.addBook(new Book("El Quijote"));
+        bm.addBook(new Book("Les Misérables"));
+        bm.addBook(new Book("Crime and Punishment"));
+
+        bm.removeBookByTitle("Árbol");
 
         List<Book> books = bm.getBookList();
 
