@@ -167,6 +167,16 @@ class BookManagementTest {
         }
     }
 
+    @Test
+    void nullBookAfterAddThrowsException(){
+        BookManagement bm = new BookManagement();
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    bm.addBook(null);
+                });
 
+
+
+    }
 
 }
