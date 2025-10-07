@@ -61,7 +61,7 @@ L’objectiu és comprovar el correcte maneig d’aquesta excepció mitjançant 
 
 -----------------------------------
 
-💻 Used technologies
+💻 Tecnologies utilitzades
 
 - Java SE 21 (o higher)
 - IDE (IntelliJ IDEA)
